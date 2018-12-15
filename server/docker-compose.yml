@@ -1,0 +1,16 @@
+version: "3"
+services:
+  db:
+    image: postgres:11.1
+    container_name: mc_db
+    ports:
+    - 5433:5432
+    volumes:
+    - db:/var/lib/postgresql/data
+    environment:
+    - POSTGRES_PASSWORD=mooncascade
+    - POSTGRES_USER=mooncascade
+    - POSTGRES_DB=mooncascade
+
+volumes:
+  db:

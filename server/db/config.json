@@ -1,0 +1,10 @@
+{
+  "development": {
+    "username": "mooncascade",
+    "password": "mooncascade",
+    "database": "mooncascade",
+    "host": "localhost",
+    "dialect": "postgres",
+    "port": 5433
+  }
+}
