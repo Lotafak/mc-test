@@ -1,6 +1,7 @@
 {
-  "name": "client",
+  "name": "mc-client",
   "version": "0.0.0",
+  "author": "Patryk Kudła <patt.kudla@gmail.com> (https://github.com/Lotafak)",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",

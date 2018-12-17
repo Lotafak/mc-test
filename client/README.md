@@ -1,27 +1,39 @@
-# Client
+# Mooncascade time tracking client
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.0.
+Angular based client for time entries tracking and testing. App created with [ng cli](https://cli.angular.io/).
 
-## Development server
+## Requirements
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+* node (tested on 8.9.4)
 
-## Code scaffolding
+## Getting started
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```
+npm i
+npm start
+```
 
-## Build
+Application is now listening on <localhost:4200>.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## Documentation
 
-## Running unit tests
+App consists of 2 parts:
+* Test helper, which let's you add time entries for participants in given location
+* Table displaying participants time entres in real time.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Test helper
 
-## Running end-to-end tests
+Consists of 2 input fields (selectors) that helps creating time entries for participants.
+* `Select participant` includes all of the participants
+* `Select location` includes locations of time entry:
+    * Beggining of the finish corridor
+    * Finish line
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+There are several restrictions as to how the time entry can be created:
+* Has to have both participant and location selected
+* Cannot add duplicate location entries
+* Cannot add entry in finish line location if no entry in the beginning of the finish corridor exists
 
-## Further help
+### Time entries table
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Updates automatically on new time entry. No finish time date means that the user didn't cross the finish line yet.
