@@ -1,0 +1,33 @@
+<div class="container">
+  <h1>Create a time entry for participant</h1>
+  <form #testForm="ngForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="participant">Select participant</label>
+      <select id="chipId" class="form-control"
+        name="chipId" [(ngModel)]="form.chipId"
+      >
+        <option *ngFor="let participant of participants" [value]="participant.chipId">
+          {{participant.firstName}} {{participant.lastName}}
+        </option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="location">Select location</label>
+      <select id="location" class="form-control"
+        name="location" [(ngModel)]="form.location"
+      >
+        <option *ngFor="let location of locations" value="{{location.id}}">
+          {{location.name}}
+        </option>
+      </select>
+    </div>
+
+    <button type="submit" class="btn btn-success">Submit</button>
+  </form>
+  <br>
+
+  <p *ngIf="status.message" [class.error]="status.error" [class.success]="!status.error">
+    {{status.message}}
+  </p>
+</div>

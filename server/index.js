@@ -1,15 +1,14 @@
-var app = require('express')();
-var http = require('http').Server(app);
-var io = require('socket.io')(http, { origins: 'localhost:*'});
+const express = require('express');
+const app = express();
+const server = require('http').Server(app);
+const io = require('./io').init(server);
 
-app.get('/', function(req, res){
-  res.send('hello');
-});
+const cors = require('cors');
 
-io.on('connection', function(socket){
-  socket.emit('message', 'hello');
-});
+app.use(express.json());
+app.use(cors());
+require('./routes')(app);
 
-http.listen(3000, function(){
+server.listen(3000, function(){
   console.log('listening on *:3000');
 });

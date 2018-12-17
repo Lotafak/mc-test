@@ -23,7 +23,9 @@ module.exports = (sequelize, DataTypes) => {
     timestamps: true
   });
   Participant.associate = function(models) {
-    // associations can be defined here
+    Participant.hasMany(models.TimeEntry, {
+      foreignKey: 'chipId',
+    })
   };
   return Participant;
 };

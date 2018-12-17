@@ -1,0 +1,18 @@
+<div class="container">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Starting number</th>
+        <th>Name</th>
+        <th>Finish time</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let entry of entries">
+        <td>{{entry.startNumber}}</td>
+        <td>{{entry.firstName}} {{entry.lastName}}</td>
+        <td>{{entry.createdAt}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
