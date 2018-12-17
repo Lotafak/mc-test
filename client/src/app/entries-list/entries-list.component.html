@@ -9,8 +9,8 @@
     </thead>
     <tbody>
       <tr *ngFor="let entry of entries">
-        <td>{{entry.startNumber}}</td>
-        <td>{{entry.firstName}} {{entry.lastName}}</td>
+        <td>{{entry.Participant.startNumber}}</td>
+        <td>{{entry.Participant.firstName}} {{entry.Participant.lastName}}</td>
         <td>{{entry.createdAt}}</td>
       </tr>
     </tbody>

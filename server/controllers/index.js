@@ -1,7 +1,7 @@
 const participants = require('./participants');
-const timeEntry = require('./timeEntry');
+const timeEntries = require('./timeEntries');
 
 module.exports = {
     participants,
-    timeEntry
+    timeEntries
 }

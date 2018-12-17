@@ -33,7 +33,6 @@ export class EntriesListComponent implements OnInit {
 
   // The list contains entries from different locations, but we need only 1 entry per chip
   reduceEntries(entries: any[]) {
-    console.log(entries);
     return entries.reduce((acc: any[], curr) => {
       const prevIndex = acc.findIndex(entry => entry.chipId === curr.chipId);
       if (prevIndex > -1) {
@@ -50,16 +49,10 @@ export class EntriesListComponent implements OnInit {
 
   // Remove or format time entry
   entryMapper(entry: { [x: string]: any; Participant: any; createdAt: any; }) {
-    const { Participant, createdAt, ...rest } = entry;
-    const time = rest.location === '1'
+    const { createdAt, ...rest } = entry;
+    rest.createdAt = rest.location === '1'
       ? ''
       : moment(createdAt).format('HH:mm:ss.SSS');
-    return {
-      ...rest,
-      createdAt: time,
-      firstName: Participant.firstName,
-      lastName: Participant.lastName,
-      startNumber: Participant.startNumber,
-    }
+    return rest;
   };
 }
