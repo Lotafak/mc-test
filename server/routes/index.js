@@ -3,8 +3,6 @@ const timeEntriesController = require('../controllers').timeEntries;
 const { check } = require('express-validator/check');
 
 module.exports = (app) => {
-    app.get('/', (req, res) => res.send('Hello'));
-
     app.get('/participants', participantsController.list);
     app.get('/time-entries', timeEntriesController.list);
 

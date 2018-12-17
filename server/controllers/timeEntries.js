@@ -74,13 +74,13 @@ module.exports = {
 
     list(req, res) {
         try {
-        return TimeEntry
-            .findAll({
-                include: [{ model: Participant }],
-                order: [['createdAt', 'DESC']]
-            })
-            .then(timeEntries => res.send(timeEntries))
-            .catch(err => res.status(400).send({ errors: [{ msg: err.message }] }));
+            return TimeEntry
+                .findAll({
+                    include: [{ model: Participant }],
+                    order: [['createdAt', 'DESC']]
+                })
+                .then(timeEntries => res.send(timeEntries))
+                .catch(err => res.status(400).send({ errors: [{ msg: err.message }] }));
         } catch (err) {
             console.log(err);
             return res.status(500).send({ errors: [{ msg: 'Unexpected error' }] });

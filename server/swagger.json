@@ -1,0 +1,112 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "Mooncascade time tracking API",
+    "version": "0.0.0",
+    "title": "mc-time-tracking"
+  },
+  "basePath": "/",
+  "tags": [],
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/participants": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Returns a list of participants"
+          },
+          "400": {
+            "description": "Could not fullfill a request"
+          },
+          "500": {
+            "description": "Unexpected error"
+          }
+        },
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ]
+      }
+    },
+    "/timie-entries": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Returns a list of time entries"
+          },
+          "400": {
+            "description": "Could not fullfill a request"
+          },
+          "500": {
+            "description": "Unexpected error"
+          }
+        },
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ]
+      },
+      "post": {
+        "parameters": [
+          {
+            "name": "TimeEntryPayload",
+            "required": true,
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/TimeEntryPayload"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Group created successfully"
+          },
+          "400": {
+            "description": "Schema validation error"
+          }
+        },
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "TimeEntryPayload": {
+      "type": "object",
+      "properties": {
+        "chipId": {
+          "description": "Id of participants chip",
+          "type": "integer",
+          "example": 1
+        },
+        "location": {
+          "description": "Id of location (timing point)",
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 2,
+          "example": 1
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time",
+          "example": "2018-12-17T22:40:54.832Z"
+        }
+      },
+      "required": [
+        "chipId",
+        "location",
+        "timestamp"
+      ]
+    }
+  }
+}
